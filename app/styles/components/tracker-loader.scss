@@ -1,0 +1,13 @@
+.tracker-loader {
+  display: flex;
+  height: 100%;
+
+  .rider-overview {
+    max-width: 415px;
+    width: 30%;
+  }
+
+  .rider-map {
+    flex-grow: 1;
+  }
+}

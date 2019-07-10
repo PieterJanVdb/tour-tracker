@@ -1,0 +1,18 @@
+<div class="rider-search">
+  <input
+    ...attributes
+    value={{this.value}}
+    placeholder="Add a rider..."
+    onblur={{action this.onBlur}}
+    onfocus={{action (mut this.show) true}}
+    oninput={{action "onSearch" value="target.value"}}
+  >
+
+  {{#if (and this.show this.results.length)}}
+    <ul class="rider-search-results">
+      {{#each this.results as |rider|}}
+        <li role="button" {{action "onSelect" rider}}>{{highlight-search rider.fullName this.value}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+</div>

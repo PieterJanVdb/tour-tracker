@@ -1,0 +1,25 @@
+<div class="rider-overview">
+  <h1>Your team {{@team.length}}/16</h1>
+
+  <RiderSearch
+    disabled={{eq @team.length this.MAX_RIDERS}}
+    @riders={{@riders}} @team={{@team}}
+    @onSelectRider={{action @onSelectRider}}
+  />
+
+  <ul class="rider-overview-list">
+    {{#each @team as |rider index|}}
+      <li class="rider-overview-list-item">
+        <img src={{rider.photoUri}} alt="Rider picture">
+        <div>
+          <span>{{rider.fullName}}</span>
+          <span>{{rider.teamName}}</span>
+        </div>
+        <CrossButton @onClick={{action @onRemoveRider rider}}/>
+      </li>
+      {{#if (lt (sum index 1) @team.length)}}
+        <hr>
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>

@@ -1,0 +1,53 @@
+.rider-overview {
+  padding: 30px;
+
+  .rider-overview-list {
+    list-style-type: none;
+    margin-top: 30px;
+    padding: 0;
+    width: 100%;
+  }
+
+  .rider-overview-list-item {
+    align-items: center;
+    display: flex;
+    margin-bottom: 10px;
+    height: 50px;
+
+    >div {
+      display: flex;
+      flex-direction: column;
+
+      >span:first-child {
+        font-size: 18px;
+      }
+
+      >span:last-child {
+        color: $color-grey-neutral;
+        font-size: 13px;
+      }
+    }
+    
+    img {
+      height: 45px;
+      margin-right: 20px;
+      width: 45px;
+    }
+
+    .cross-button-container {
+      margin-left: auto;
+      opacity: 0;;
+    }
+
+    &:hover {
+      .cross-button-container {
+        transition: opacity 0.2s ease;
+        opacity: 1;
+      }
+    }
+  }
+
+  hr {
+    border: solid 1px $color-border;
+  }
+}
