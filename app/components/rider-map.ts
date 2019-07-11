@@ -47,7 +47,7 @@ export default class RiderMap extends Component<RiderMapArguments> {
   constructor(owner: any, args: RiderMapArguments) {
     super(owner, args);
 
-    (this.pollTelemetry as any).perform();
+    this.pollTelemetry.perform();
   }
 
   get route(): Route {

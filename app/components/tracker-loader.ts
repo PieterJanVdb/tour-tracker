@@ -45,15 +45,14 @@ export default class TrackerLoaderComponent extends Component {
     super(owner, args);
 
     this.restoreTeam();
-    
-    (this.initData as any).perform();
+    this.initData.perform();
   }
 
   @task
   *initData(): any {
-    yield (this.fetchRiders as any).perform();
-    const stage = yield (this.fetchStage as any).perform();
-    yield (this.fetchRoute as any).perform(stage);
+    yield this.fetchRiders.perform();
+    const stage = yield this.fetchStage.perform();
+    yield this.fetchRoute.perform(stage);
   }
 
   @task
