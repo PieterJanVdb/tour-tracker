@@ -70,6 +70,6 @@ export default class RiderSearch extends Component<RiderSearchArguments> {
       if (!this.isDestroyed) {
         this.show = false;
       }
-    }, 100);
+    }, 500);
   }
 }
