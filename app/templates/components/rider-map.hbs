@@ -1,5 +1,23 @@
 <div class="rider-map">
   <LeafletMap @bounds={{this.route.markers}} as |layers|>
     <layers.tile @url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}" />
+    <layers.polyline @locations={{this.route.markers}} />
+
+    {{#if this.route.arrival}}
+      <layers.marker @location={{this.route.arrival}} @icon={{icon className="finish-icon" iconUrl=this.ARRIVAL_ICON_URL}} />
+    {{/if}}
+
+    {{#each this.riderMarkers as |riderMarker|}}
+      <layers.marker 
+        @location={{riderMarker.latlng}}
+        @icon={{icon iconUrl=riderMarker.rider.photoUri className=(concat "rider-icon-" riderMarker.rider.color)}}
+        as |marker|>
+        <marker.tooltip @direction="right" @offset={{point 45 -2}}>
+          <div><strong>{{riderMarker.rider.fullName}}</strong></div>
+          <div>Current speed: {{riderMarker.speed}}km/h</div>
+          <div>Average speed: {{riderMarker.avgSpeed}}km/h</div>
+        </marker.tooltip>
+      </layers.marker>
+    {{/each}}
   </LeafletMap>
 </div>

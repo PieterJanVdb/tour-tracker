@@ -11,6 +11,6 @@
         Stage {{this.stage.stageNumber}} | {{this.stage.departingTown}} to {{this.stage.arrivingTown}} | {{this.stage.totalDistance}}km  
       </h1>
     {{/if}}
-    <RiderMap @route={{this.route}}/>
+    <RiderMap @route={{this.route}} @stage={{this.stage}} @team={{this.team}}/>
   </div>
 </div>

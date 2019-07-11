@@ -1,5 +1,5 @@
 <div class="rider-overview">
-  <h1>Your team {{@team.length}}/16</h1>
+  <h1>Your team {{@team.length}}/{{this.MAX_RIDERS}}</h1>
 
   <RiderSearch
     disabled={{eq @team.length this.MAX_RIDERS}}
@@ -10,7 +10,7 @@
   <ul class="rider-overview-list">
     {{#each @team as |rider index|}}
       <li class="rider-overview-list-item">
-        <img src={{rider.photoUri}} alt="Rider picture">
+        <img style={{concat "border-color: #" rider.color}} src={{rider.photoUri}} alt="Rider picture">
         <div>
           <span>{{rider.fullName}}</span>
           <span>{{rider.teamName}}</span>

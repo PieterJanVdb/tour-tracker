@@ -15,6 +15,7 @@ export default class Rider {
   @tracked lastName?: string;
   @tracked teamName?: string;
   @tracked photoUri?: string;
+  @tracked color?: string;
 
   get fullName(): string {
     return `${this.firstName} ${this.lastName}`;
@@ -54,7 +55,8 @@ export default class Rider {
       'firstName',
       'lastName',
       'teamName',
-      'photoUri'
+      'photoUri',
+      'color',
     ]);
   }
 }

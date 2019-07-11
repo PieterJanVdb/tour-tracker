@@ -4,5 +4,62 @@
   .leaflet-container {
     height: 100%;
     width: 100%;
+
+    .finish-icon {
+      margin-top: -34px;
+      margin-left: -15px;
+      width: 40px;
+      height: 40px;
+    }
+
+    img[class*=rider-icon-] {
+      border-radius: 50%;
+      border-width: 2px;
+      border-style: solid;
+      height: 40px;
+      width: 40px;
+      cursor: default;
+      margin-top: -20px;
+    }
+
+    .rider-icon-e6194b {
+      border-color: #e6194b;
+    }
+    .rider-icon-ffe119 {
+      border-color: #ffe119;
+    }
+    .rider-icon-bfef45 {
+      border-color: #bfef45;
+    }
+    .rider-icon-3cb44b {
+      border-color: #3cb44b;
+    }
+    .rider-icon-42d4f4 {
+      border-color: #42d4f4;
+    }
+    .rider-icon-4363d8 {
+      border-color: #4363d8;
+    }
+    .rider-icon-800000 {
+      border-color: #800000;
+    }
+    .rider-icon-911eb4 {
+      border-color: #911eb4;
+    }
+    .rider-icon-f032e6 {
+      border-color: #f032e6;
+    }
+    .rider-icon-f58231 {
+      border-color: #f58231;
+    }
+    .rider-icon-469990 {
+      border-color: #469990;
+    }
+    .rider-icon-000000 {
+      border-color: #000000;
+    }
+    .rider-icon-9a6324 {
+      border-color: #9a6324;
+    }
   }
 }

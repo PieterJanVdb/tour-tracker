@@ -8,13 +8,26 @@ import { alias } from '@ember/object/computed';
 import Stage, { StagePayload } from 'tour-tracker/models/stage';
 import Route, { RoutePayload } from 'tour-tracker/models/route';
 
-
 const RIDERS_URL = 'https://fep-api.dimensiondata.com/v2/rider/33';
-const ROUTE_URL = 'https://fep-api.dimensiondata.com/v2/stages/v2/329/route?reductionfactor=100';
-const TELEMETRY_URL = 'https://fep-api.dimensiondata.com/v2/stages/328/rider-telemetry';
-const MAP_ROUTE_URL = 'https://fep-api.dimensiondata.com/v2/map/route/328/2';
+const ROUTE_URL = 'https://fep-api.dimensiondata.com/v2/map/route/{stage}/2';
 const STAGE_URL = 'https://fep-api.dimensiondata.com/v2/race/33/stages/current';
 const STORAGE_KEY = 'tracker-loader:team';
+
+const COLORS = [
+  'e6194b',
+  'ffe119',
+  'bfef45',
+  '3cb44b',
+  '42d4f4',
+  '4363d8',
+  '800000',
+  '911eb4',
+  'f032e6',
+  'f58231',
+  '469990',
+  '000000',
+  '9a6324',
+];
 
 export default class TrackerLoaderComponent extends Component {
   @tracked team: Rider[] = []
@@ -66,6 +79,14 @@ export default class TrackerLoaderComponent extends Component {
     }
   }
 
+  getColor(): string {
+    const result = COLORS.find((color) => {
+      return !this.team.find(r => r.color === color);
+    });
+
+    return result || '#ffffff';
+  }
+
   restoreTeam(): void {
     const storage = localStorage.getItem('tracker-loader:team');
 
@@ -80,6 +101,7 @@ export default class TrackerLoaderComponent extends Component {
 
   @action
   onSelectRider(rider: Rider): void {
+    rider.color = this.getColor();
     this.team = [...this.team, rider];
     this.storeTeam();
   }
