@@ -9,7 +9,7 @@ export interface RiderPayload {
   PhotoUri: string;
 }
 
-export default  class Rider {
+export default class Rider {
   @tracked id?: number;
   @tracked firstName?: string;
   @tracked lastName?: string;

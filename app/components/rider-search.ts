@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { alias } from '@ember/object/computed';
-import { restartableTask, Task } from 'ember-concurrency-decorators';
+import { restartableTask } from 'ember-concurrency-decorators';
 import { timeout } from 'ember-concurrency';
 import Rider from '../models/rider';
 import { later } from '@ember/runloop';
@@ -28,7 +28,8 @@ export default class RiderSearch extends Component<RiderSearchArguments> {
     return riders.filter(r => !team.find(t => t.id === r.id));
   }
 
-  @restartableTask(function*(this: RiderSearch, search: string): any {
+  @restartableTask
+  *searchRider(search: string): any {
     if (!search || search.length < AUTOCOMPLETE_BEGIN_LENGTH) {
       return [];
     }
@@ -45,7 +46,7 @@ export default class RiderSearch extends Component<RiderSearchArguments> {
 
       return false;
     });
-  }) searchRider!: Task;
+  }
 
   @action
   onSearch(value: string): void {

@@ -1,13 +1,24 @@
 .tracker-loader {
   display: flex;
   height: 100%;
+  padding-top: 20px;
 
   .rider-overview {
     max-width: 415px;
     width: 30%;
   }
 
-  .rider-map {
+  .stage {
+    display: flex;
     flex-grow: 1;
+    flex-direction: column;
+
+    .stage-details {
+      width: 100%;
+    }
+    
+    .rider-map {
+      flex-grow: 1;
+    }
   }
 }

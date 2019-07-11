@@ -5,5 +5,12 @@
     @onSelectRider={{this.onSelectRider}}
     @onRemoveRider={{this.onRemoveRider}}
   />
-  <RiderMap />
+  <div class="stage">
+    {{#if this.stage}}
+      <h1 class="stage-details">
+        Stage {{this.stage.stageNumber}} | {{this.stage.departingTown}} to {{this.stage.arrivingTown}} | {{this.stage.totalDistance}}km  
+      </h1>
+    {{/if}}
+    <RiderMap @route={{this.route}}/>
+  </div>
 </div>
