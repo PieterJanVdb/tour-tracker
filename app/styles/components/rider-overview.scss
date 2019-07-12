@@ -1,12 +1,14 @@
 .rider-overview {
-  padding: 0 30px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
 
   .rider-overview-list {
     list-style-type: none;
     margin-top: 30px;
+    margin-bottom: 0;
     padding: 0;
     width: 100%;
-    height: 80%;
     overflow: auto;
   }
 
